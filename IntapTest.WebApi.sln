@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntapTest.Domain", "IntapTe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FB3F49B7-ED7B-4021-B779-7E27BB2CE335}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntapTest.Shared", "IntapTest.Shared\IntapTest.Shared.csproj", "{6D63D562-19BC-46E3-9F58-8708275DD804}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{DAD3B63C-D0F1-4C89-AFA2-A70FE7104B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAD3B63C-D0F1-4C89-AFA2-A70FE7104B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAD3B63C-D0F1-4C89-AFA2-A70FE7104B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D63D562-19BC-46E3-9F58-8708275DD804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D63D562-19BC-46E3-9F58-8708275DD804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D63D562-19BC-46E3-9F58-8708275DD804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D63D562-19BC-46E3-9F58-8708275DD804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{9B68AC96-4AB0-44AF-AC9D-656CBFC9A7E2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{CE06B26B-8E83-4198-8B38-792065A35FDD} = {B245849D-CBCB-4148-B3AC-A74C418BE6E2}
 		{DAD3B63C-D0F1-4C89-AFA2-A70FE7104B77} = {A3FB6EE0-2E5C-4E2D-BE7A-9C3E0DE49D78}
+		{6D63D562-19BC-46E3-9F58-8708275DD804} = {FB3F49B7-ED7B-4021-B779-7E27BB2CE335}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F29573-15D6-4A2D-8ABE-34BB8A4D12AA}
