@@ -9,6 +9,6 @@ namespace IntapTest.Data.Entities
         public Guid UserId { get; set; }
         public User? User { get; set; }
 
-        public ICollection<TimeActivity> TimeActivities { get; set; } = new List<TimeActivity>();
+        public ICollection<TimeActivity> TimeActivities { get; set; } = new HashSet<TimeActivity>();
     }
 }

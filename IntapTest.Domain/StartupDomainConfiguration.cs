@@ -1,4 +1,5 @@
 ﻿using IntapTest.Domain.Services.Activities;
+using IntapTest.Domain.Services.TimeActivities;
 using IntapTest.Domain.Services.Users;
 using IntapTest.Shared.AppConfigurations;
 using IntapTest.Shared.AppConfigurations.Sections;
@@ -19,6 +20,7 @@ namespace IntapTest.Domain
             });
 
             services.AddTransient<IActivityService, ActivityService>();
+            services.AddTransient<ITimeActivityService, TimeActivityService>();
         }
     }
 }

@@ -15,7 +15,6 @@ namespace IntapTest.Data.Entities
         public Guid? LastModifiedBy { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<Activity> Activities { get; set; } = new List<Activity>();
-
+        public ICollection<Activity> Activities { get; set; } = new HashSet<Activity>();
     }
 }
