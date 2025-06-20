@@ -1,4 +1,5 @@
-﻿using IntapTest.Domain.Services.Users;
+﻿using IntapTest.Domain.Services.Activities;
+using IntapTest.Domain.Services.Users;
 using IntapTest.Shared.AppConfigurations;
 using IntapTest.Shared.AppConfigurations.Sections;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,8 @@ namespace IntapTest.Domain
                 x.AccessRefreshToken = appConfiguration.JWTConfiguration.AccessRefreshToken;
                 x.TokenSecretKey = appConfiguration.JWTConfiguration.TokenSecretKey;
             });
+
+            services.AddTransient<IActivityService, ActivityService>();
         }
     }
 }

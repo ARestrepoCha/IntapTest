@@ -19,7 +19,6 @@ namespace IntapTest.Api.Controllers
         }
 
         [HttpPost]
-
         public async Task<ActionResult<Result<bool>>> CreateUser([FromBody] CreateUserRequestDto createUserRequest)
         {
             var result = await _userService.CreateUser(createUserRequest);
