@@ -1,10 +1,8 @@
-﻿using FluentResults;
-using IntapTest.Domain.Services.Users;
+﻿using IntapTest.Domain.Services.Users;
 using IntapTest.Shared.Dtos.Requests;
-using IntapTest.Shared.Dtos.Responses;
-using Microsoft.AspNetCore.Mvc;
 using IntapTest.Shared.Extensions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IntapTest.Api.Controllers
 {
@@ -19,7 +17,7 @@ namespace IntapTest.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Result<bool>>> CreateUser([FromBody] CreateUserRequestDto createUserRequest)
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserRequestDto createUserRequest)
         {
             var result = await _userService.CreateUser(createUserRequest);
             return !result.IsFailed ? Ok(result.Value) : result.GetErrorResponse();
@@ -27,7 +25,7 @@ namespace IntapTest.Api.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<ActionResult<Result<LoginResponseDto>>> Login(LoginUserRequestDto loginDto)
+        public async Task<IActionResult> Login(LoginUserRequestDto loginDto)
         {
             var result = await _userService.Login(loginDto);
             return !result.IsFailed ? Ok(result.Value) : result.GetErrorResponse();

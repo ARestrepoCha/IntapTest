@@ -1,5 +1,4 @@
-﻿using FluentResults;
-using IntapTest.Domain.Services.Activities;
+﻿using IntapTest.Domain.Services.Activities;
 using IntapTest.Shared.Dtos.Requests;
 using IntapTest.Shared.Enums;
 using IntapTest.Shared.Extensions;
@@ -19,7 +18,7 @@ namespace IntapTest.Api.Controllers
 
         [HttpPost]
         [Authorize(Roles = nameof(RoleEnum.Employee))]
-        public async Task<ActionResult<Result<bool>>> CreateActivity([FromBody] CreateActivityRequestDto createActivityRequest)
+        public async Task<IActionResult> CreateActivity([FromBody] CreateActivityRequestDto createActivityRequest)
         {
             var result = await _activityService.CreateActivity(createActivityRequest);
             return !result.IsFailed ? Ok(result.Value) : result.GetErrorResponse();
@@ -28,7 +27,7 @@ namespace IntapTest.Api.Controllers
         [HttpPut]
         [Route("Update/{id}")]
         [Authorize(Roles = nameof(RoleEnum.Employee))]
-        public async Task<ActionResult<Result<bool>>> UpdateActivity([FromRoute] Guid id, UpdateActivityRequestDto updateActivityRequest)
+        public async Task<IActionResult> UpdateActivity([FromRoute] Guid id, UpdateActivityRequestDto updateActivityRequest)
         {
             var result = await _activityService.UpdateActivity(id, updateActivityRequest);
             return !result.IsFailed ? Ok(result.Value) : result.GetErrorResponse();
@@ -37,7 +36,7 @@ namespace IntapTest.Api.Controllers
         [HttpDelete]
         [Route("Delete/{id}")]
         [Authorize(Roles = nameof(RoleEnum.Employee))]
-        public async Task<ActionResult<Result<bool>>> DeleteActivity([FromRoute] Guid id)
+        public async Task<IActionResult> DeleteActivity([FromRoute] Guid id)
         {
             var result = await _activityService.DeleteActivity(id);
             return !result.IsFailed ? Ok(result.Value) : result.GetErrorResponse();
@@ -45,7 +44,7 @@ namespace IntapTest.Api.Controllers
 
         [HttpGet]
         [Authorize(Roles = nameof(RoleEnum.Employee))]
-        public async Task<ActionResult<Result<bool>>> GetActivitites()
+        public async Task<IActionResult> GetActivitites()
         {
             var result = await _activityService.GetActivities();
             return !result.IsFailed ? Ok(result.Value) : result.GetErrorResponse();
