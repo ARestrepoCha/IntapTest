@@ -2,6 +2,8 @@
 using FluentValidation.AspNetCore;
 using IntapTest.Data;
 using IntapTest.Data.Entities;
+using IntapTest.Data.Seeds;
+using IntapTest.Domain;
 using IntapTest.Domain.Validator;
 using IntapTest.Shared.AppConfigurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,12 +31,12 @@ namespace IntapTest.Api
             Configuration = builder.Build();
         }
 
-        public void ConfigureServices(IServiceCollection services)
+        public async Task ConfigureServices(IServiceCollection services)
         {
             var appConfiguration = Configuration.GetApplicationConfig();
 
             services.AddValidatorsFromAssemblyContaining<Program>();
-            //services.AddValidatorsFromAssemblyContaining<StartupDomainConfiguration>();
+            services.AddValidatorsFromAssemblyContaining<StartupDomainConfiguration>();
             services.AddFluentValidationAutoValidation();
 
             services.AddMvc(options =>
@@ -79,8 +81,8 @@ namespace IntapTest.Api
             data.DataConfigureServices(services);
 
             //Add DI for domain services
-            //var domain = new StartupDomainConfiguration();
-            //domain.DomainConfigureServices(services, appConfiguration);
+            var domain = new StartupDomainConfiguration();
+            domain.DomainConfigureServices(services, appConfiguration);
 
             services.AddAuthorization(options =>
             {
@@ -178,9 +180,9 @@ namespace IntapTest.Api
                     }
                 });
             });
-            // Create Default Super Admin User
-            //IServiceProvider serviceProvider = services.BuildServiceProvider();
-            //await SeedAdministrator.CreateApplicationAdministrator(serviceProvider);
+
+            IServiceProvider serviceProvider = services.BuildServiceProvider();
+            await SeedRoles.CreateApplicationRoles(serviceProvider);
         }
 
         private static byte[] DeriveKeyBytes(string secret)
